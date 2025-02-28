@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1740502503 source:c:\users\surface\documents\estructura de datos\listasenlazadas\main.cpp
+	<iostream>
+	"ListaSimple.hpp"
+
+1740501784 c:\users\surface\documents\estructura de datos\listasenlazadas\listasimple.hpp
+	"ListaSimple.tpp"
+
+1740502531 c:\users\surface\documents\estructura de datos\listasenlazadas\listasimple.tpp
+
+1740687190 source:c:\users\surface\documents\estructura de datos\listasdoblementeenlazadas\listasenlazadas\main.cpp
+	<iostream>
+	"ListaSimple.hpp"
+
+1740687532 c:\users\surface\documents\estructura de datos\listasdoblementeenlazadas\listasenlazadas\listasimple.hpp
+	"ListaSimple.tpp"
+
+1740687565 c:\users\surface\documents\estructura de datos\listasdoblementeenlazadas\listasenlazadas\listasimple.tpp
+
