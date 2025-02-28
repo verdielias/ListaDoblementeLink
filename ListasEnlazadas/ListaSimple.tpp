@@ -226,3 +226,26 @@ void ListaDoble<T>::ImprimirReversa() const{
         --i;
     }
 }
+//Operador sobrecargado para acceder a un elemento (lvalue)
+template <typename T>
+T& ListaDoble<T>::operator[](int index){
+    if (index < 0 || index >= numElem ) throw "Indice fuera de rango.";
+    Elemento *aux = primero;
+    for (int i = 0 ; i < index ; ++i){
+        aux = aux->siguiente;
+    }
+    return aux->valor;
+}
+
+//Operador sobrecargado para acceder a un elemento (rvalue)
+template <typename T>
+const T& ListaDoble<T>::operator[](int index) const{
+    if (index < 0 || index >= numElem ) throw "Indice fuera de rango.";
+    Elemento *aux = primero;
+    for (int i = 0 ; i < index ; ++i){
+        aux = aux->siguiente;
+    }
+    return aux->valor;
+}
+
+

@@ -45,7 +45,10 @@ public:
     void Imprimir() const;
     //Imprimir al revez
     void ImprimirReversa() const;
-
+    //Operador sobre cargado para acceder a un elemento (lvalue)
+    T& operator[](int index);
+    //Operador sobre cargado para acceder a un elemento (rvalue)
+    const T& operator[](int index) const;
 
 
 private:

@@ -23,6 +23,7 @@ int main()
         lista.AgregarAlInicio('I');
         lista.AgregarAlInicio('M');
         lista.AgregarAlInicio('O');
+        //lista[2] = 'Z';
         cout << endl;
         lista.Imprimir();
         cout << endl;
