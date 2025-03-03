@@ -15,7 +15,7 @@ ListaDoble<T>& ListaDoble<T>::operator= (const ListaDoble<T> &v){
     Elemento *aux = v.primero;
 
     while(aux != nullptr){
-        this.AgregarAlFinal(aux -> valor);
+        this -> AgregarAlFinal(aux -> valor);
         aux = aux -> siguiente;
     }
     return *this;
@@ -48,8 +48,9 @@ void ListaDoble<T>::AgregarAlFinal(T valor){
         Elemento * aux = new Elemento(valor);
         ultimo -> siguiente = aux;
         ultimo = aux;
+        ++numElem;
     }
-    ++numElem;
+
 }
 //Agregar en cierta posicion
 template <typename T>
@@ -239,18 +240,24 @@ T& ListaDoble<T>::operator[](int index){
 
 template <typename T>
 void ListaDoble<T>::IntercambiarListas( ListaDoble<T> &v){
+    if (this == &v) return;
     ListaDoble<T> Listaaux;
     Listaaux = v;
 
+    v.Vaciar();
     Elemento *aux = primero;
     while(aux != nullptr){
-        this.AgregarAlFinal(aux -> valor);
+        v.AgregarAlFinal(aux -> valor);
         aux = aux -> siguiente;
     }
-    return *this;
-    v = this;
 
-
+    this -> Vaciar();
+    Elemento *aux2 = Listaaux.primero;
+    while(aux2 != nullptr){
+        this -> AgregarAlFinal(aux2 -> valor);
+        aux2 = aux2 -> siguiente;
+    }
+    return;
 }
 
 //Operador sobrecargado para acceder a un elemento (rvalue)

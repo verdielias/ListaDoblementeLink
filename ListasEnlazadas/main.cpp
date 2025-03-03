@@ -15,9 +15,9 @@ int main()
 
         cout << "Intercambiar listas" << endl;
         lista2.AgregarAlFinal('f');
+
+
         lista.IntercambiarListas(lista2);
-
-
         cout << "swap" << endl;
         lista.Imprimir();
         cout  << endl;
