@@ -13,7 +13,7 @@ int main()
         lista.AgregarEnPosicion('I', 2);
         lista.Imprimir();
 
-        cout << "Intercambiar listas" << endl;
+        cout << endl <<"Intercambiar listas" << endl;
         lista2.AgregarAlFinal('f');
 
 
@@ -23,6 +23,10 @@ int main()
         cout  << endl;
         lista2.Imprimir();
 
+        cout << endl << endl;
+        cout << "Transferir rango" << endl;
+        lista2.TransferirRango(lista, 0, 3);
+        lista.Imprimir();
     }catch(const char * mensaje){
         cerr << mensaje << endl;
     }

@@ -48,7 +48,7 @@ public:
     //Intercambiar dos listas entre si
     void IntercambiarListas( ListaDoble<T> &v);
     //Transferir un rango de elementos de una lista a otra;
-    ListaDoble<T> TransferirRango( ListaDoble<T> &v, int inicio, int fin);
+    void TransferirRango( ListaDoble<T> &v, int inicio, int fin);
     //Operador sobre cargado para acceder a un elemento (lvalue)
     T& operator[](int index);
     //Operador sobre cargado para acceder a un elemento (rvalue)

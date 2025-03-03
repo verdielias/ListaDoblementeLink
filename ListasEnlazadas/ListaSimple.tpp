@@ -43,8 +43,9 @@ void ListaDoble<T>::AgregarAlInicio(T valor){
 //Agregar al final
 template <typename T>
 void ListaDoble<T>::AgregarAlFinal(T valor){
-    if(EstaVacia()) AgregarAlInicio(valor);
-    else{
+    if(EstaVacia()){
+        AgregarAlInicio(valor);
+    }else{
         Elemento * aux = new Elemento(valor);
         ultimo -> siguiente = aux;
         ultimo = aux;
@@ -77,8 +78,7 @@ void ListaDoble<T>::EliminarAlInicio(){
     else if(numElem==1){
         primero=nullptr;
         ultimo=nullptr;
-    }
-    else {
+    }else {
         Elemento * porBorrar  = primero;
         primero = primero -> siguiente;
 
@@ -159,7 +159,7 @@ T ListaDoble<T>::ObtenerValor(int posicion) const{
     if(posicion < 0 || posicion  > numElem) throw "No es posible ubicarse en esa posicion";
     Elemento * aux = primero;
 
-    for(int i = 1, pos = numElem -1; i < pos; ++i){
+    for(int i = 0; i < posicion; ++i){
         aux = aux -> siguiente;
     }
     return aux -> valor;
@@ -272,11 +272,12 @@ const T& ListaDoble<T>::operator[](int index) const{
 }
 
 template <typename T>
-ListaDoble<T> ListaDoble<T>::TransferirRango( ListaDoble<T> &v, int inicio, int fin){
-    for(int i = inicio; i <= fin; ++i){
-        v.AgregarAlFinal(this.ObtenerValor(i));
+void ListaDoble<T>::TransferirRango( ListaDoble<T> &v, int inicio, int fin){
+    if( (inicio >= fin) || (inicio >= numElem) || (fin >= numElem))throw "No se a podido utilizar este rango";
+    for(int i = inicio ; i <= fin; ++i){
+        v.AgregarAlFinal(this -> ObtenerValor(i));
     }
-    return v;
+    return;
 }
 
 
