@@ -53,7 +53,7 @@ void ListaDoble<T>::AgregarAlFinal(T valor){
 }
 //Agregar en cierta posicion
 template <typename T>
-void ListaDoble<T>::AgregrarEnPosicion(T valor, int posicion){
+void ListaDoble<T>::AgregarEnPosicion(T valor, int posicion){
     if(posicion < 0 || posicion  > numElem) throw "No es posible ubicarse en esa posicion";
 
     if(posicion == 0) AgregarAlInicio(valor);
@@ -115,7 +115,7 @@ void ListaDoble<T>::EliminarEnPosicion( int posicion){
     if(posicion < 0 || posicion  > numElem) throw "No es posible ubicarse en esa posicion";
     if(EstaVacia())throw "La lista esta vacia";
     else if(posicion == 0) EliminarAlInicio();
-    else if(posicion == numElem ) EliminarAlFinal();
+    else if(posicion == numElem -1) EliminarAlFinal();
     else {
         Elemento * porBorrar  = primero;
         for(int i = 0 ; i < posicion; ++i){
@@ -237,6 +237,22 @@ T& ListaDoble<T>::operator[](int index){
     return aux->valor;
 }
 
+template <typename T>
+void ListaDoble<T>::IntercambiarListas( ListaDoble<T> &v){
+    ListaDoble<T> Listaaux;
+    Listaaux = v;
+
+    Elemento *aux = primero;
+    while(aux != nullptr){
+        this.AgregarAlFinal(aux -> valor);
+        aux = aux -> siguiente;
+    }
+    return *this;
+    v = this;
+
+
+}
+
 //Operador sobrecargado para acceder a un elemento (rvalue)
 template <typename T>
 const T& ListaDoble<T>::operator[](int index) const{
@@ -246,6 +262,14 @@ const T& ListaDoble<T>::operator[](int index) const{
         aux = aux->siguiente;
     }
     return aux->valor;
+}
+
+template <typename T>
+ListaDoble<T> ListaDoble<T>::TransferirRango( ListaDoble<T> &v, int inicio, int fin){
+    for(int i = inicio; i <= fin; ++i){
+        v.AgregarAlFinal(this.ObtenerValor(i));
+    }
+    return v;
 }
 
 

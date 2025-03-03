@@ -16,7 +16,7 @@ public:
     //Agregar al final
     void AgregarAlFinal(T valor);
     //Agregar en cierta posicion
-    void AgregrarEnPosicion(T valor, int posicion);
+    void AgregarEnPosicion(T valor, int posicion);
     //Eliminar al inicio
     void EliminarAlInicio();
     //Eliminar al final
@@ -45,6 +45,10 @@ public:
     void Imprimir() const;
     //Imprimir al revez
     void ImprimirReversa() const;
+    //Intercambiar dos listas entre si
+    void IntercambiarListas( ListaDoble<T> &v);
+    //Transferir un rango de elementos de una lista a otra;
+    ListaDoble<T> TransferirRango( ListaDoble<T> &v, int inicio, int fin);
     //Operador sobre cargado para acceder a un elemento (lvalue)
     T& operator[](int index);
     //Operador sobre cargado para acceder a un elemento (rvalue)
