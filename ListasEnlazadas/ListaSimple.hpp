@@ -53,6 +53,10 @@ public:
     T& operator[](int index);
     //Operador sobre cargado para acceder a un elemento (rvalue)
     const T& operator[](int index) const;
+    //Transferir desde cierto indice en adelante
+    void TransferirDesdeIndice( ListaDoble<T> &v, int inicio);
+    //Transferir todos los elementos de una lista a otra
+    void TransferirElementos(ListaDoble<T> &v);
 
 
 private:

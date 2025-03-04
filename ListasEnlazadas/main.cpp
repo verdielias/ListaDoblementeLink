@@ -25,8 +25,19 @@ int main()
 
         cout << endl << endl;
         cout << "Transferir rango" << endl;
-        lista2.TransferirRango(lista, 0, 3);
+        lista2.TransferirRango(lista, 0, 2);
         lista.Imprimir();
+
+        cout << endl << endl;
+        cout << "Transferir desde indice" << endl;
+        lista2.TransferirDesdeIndice(lista, 1);
+        lista.Imprimir();
+
+        cout << endl << endl;
+        cout << "Transferir elementos" << endl;
+        lista2.TransferirElementos(lista);
+        lista.Imprimir();
+
     }catch(const char * mensaje){
         cerr << mensaje << endl;
     }

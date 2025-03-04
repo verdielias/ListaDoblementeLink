@@ -280,4 +280,15 @@ void ListaDoble<T>::TransferirRango( ListaDoble<T> &v, int inicio, int fin){
     return;
 }
 
+template <typename T>
+void ListaDoble<T>::TransferirDesdeIndice( ListaDoble<T> &v, int inicio){
+    this -> TransferirRango(v,inicio,numElem -1);
+
+}
+
+template <typename T>
+void ListaDoble<T>::TransferirElementos(ListaDoble<T> &v){
+    this -> TransferirRango(v,0,numElem -1);
+}
+
 
