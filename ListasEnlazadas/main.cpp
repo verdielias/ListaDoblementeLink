@@ -1,7 +1,15 @@
 #include <iostream>
 #include "ListaSimple.hpp"
 using namespace std;
+/**
 
+ * \file main.cpp
+
+ * \author Flor Machado y Elias Peregrina
+
+ * \date 4/02/2025
+
+ */
 int main()
 {
     try{
