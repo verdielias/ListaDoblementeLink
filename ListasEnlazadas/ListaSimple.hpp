@@ -41,14 +41,14 @@ public:
      *
      */void AgregarAlInicio(T valor);
     //Agregar al final
-    /** \brief M&eacute;todo para a&ntilde;adir cosas de T a lo último de la lista
+    /** \brief M&eacute;todo para a&ntilde;adir cosas de T a lo ï¿½ltimo de la lista
      *
      * \param valor T, el valor que se va a a&ntilde;adir a la lista
      * \return void
      *
      */void AgregarAlFinal(T valor);
     //Agregar en cierta posicion
-    /** \brief M&eacute;todo para a&ntilde;adir cosas de T en cierta posición en la lista
+    /** \brief M&eacute;todo para a&ntilde;adir cosas de T en cierta posiciï¿½n en la lista
      *
      * \param valor T, el valor que se va a a&ntilde;adir a la lista
      * \return void
@@ -67,8 +67,8 @@ public:
      *
      */void EliminarAlFinal();
     //Eliminar cierta posicon
-    /** \brief M&eacute;todo para eliminar un valor en cierta posición de la lista
-     *  \param int posicion, posición donde esta el valor a eliminar
+    /** \brief M&eacute;todo para eliminar un valor en cierta posiciï¿½n de la lista
+     *  \param int posicion, posiciï¿½n donde esta el valor a eliminar
      * \return void
      *
      */void EliminarEnPosicion( int posicion);
@@ -79,10 +79,10 @@ public:
      *
      */void EliminarValor(T valor);
     //Buscar un valor
-    /** \brief Método para buscar la existencia de un valor en específicio
+    /** \brief Mï¿½todo para buscar la existencia de un valor en especï¿½ficio
      *
      * \param valor T, el valor que se quiere encontrar en la lista
-     * \return bool, retorna sí, si existe ese valor en la lista
+     * \return bool, retorna sï¿½, si existe ese valor en la lista
      *
      */
     bool Buscar(T valor) const;
@@ -93,21 +93,21 @@ public:
      *
      */T ObtenerPrimero() const;
     //Obtener el ultimo
-    /** \brief M&eacute;todo para obtener el último valor de la lista
+    /** \brief M&eacute;todo para obtener el ï¿½ltimo valor de la lista
      *
      * \return T, el valor que se quiere obtener
      *
      */T ObtenerUltimo() const;
     //Obtener el que esta en cierta posicion
-    /** \brief M&eacute;todo para obtener un valor en cierta posición de la lista
-     *\param int posicion, posición donde esta el valor que se quiere obtener
+    /** \brief M&eacute;todo para obtener un valor en cierta posiciï¿½n de la lista
+     *\param int posicion, posiciï¿½n donde esta el valor que se quiere obtener
      * \return T, el valor que se quiere obtener
      *
      */T ObtenerValor(int posicion) const;
     //Obtener la posicion de cierto elemento
-    /** \brief M&eacute;todo para obtener la posición de un valor de la lista
-     *\param T valor, el valor del que queremos encontrar su posición
-     * \return int, la posición del valor que se quiere obtener
+    /** \brief M&eacute;todo para obtener la posiciï¿½n de un valor de la lista
+     *\param T valor, el valor del que queremos encontrar su posiciï¿½n
+     * \return int, la posiciï¿½n del valor que se quiere obtener
      *
      */int ObtenerPosicion(T val) const;
     //Conocer el numero de elementos
@@ -116,7 +116,7 @@ public:
      * \return int cantidad de elementos de la lista
      *
      */int ConocerNumElem();
-    //Copnocer si la lista esta vacia
+    //Conocer si la lista esta vacia
     /** \brief M&eacute;todo para conocer si la lista esta vac&iacute;a o no
      *
      * \return bool
@@ -135,25 +135,25 @@ public:
      *
      */void Imprimir() const;
     //Imprimir al revez
-    /** \brief M&eacute;todo que imprime los valores del úlitmo al primero de la lista
+    /** \brief M&eacute;todo que imprime los valores del ï¿½litmo al primero de la lista
      *
      * \return void
      *
      */void ImprimirReversa() const;
     //Intercambiar dos listas entre si
-    /** \brief Método que intercambia los valores de una lista y la otra
+    /** \brief Mï¿½todo que intercambia los valores de una lista y la otra
      *
-     * \param v ListaDoble<T>&, la lista que se conseguirán los valores a intercambiar
+     * \param v ListaDoble<T>&, la lista que se conseguirï¿½n los valores a intercambiar
      * \return void
      *
      */
     void IntercambiarListas( ListaDoble<T> &v);
     //Transferir un rango de elementos de una lista a otra;
-    /** \brief Método que transfiere valores de una lista, en cierto rango, hacia otra lista
+    /** \brief Mï¿½todo que transfiere valores de una lista, en cierto rango, hacia otra lista
      *
-     * \param v ListaDoble<T>&, la lista que se conseguirán los valores a transferir
+     * \param v ListaDoble<T>&, la lista que se conseguirï¿½n los valores a transferir
      * \param inicio int, el primer valor del rango
-     * \param fin int, el último valor del rango
+     * \param fin int, el ï¿½ltimo valor del rango
      * \return void
      *
      */
@@ -163,21 +163,26 @@ public:
     //Operador sobre cargado para acceder a un elemento (rvalue)
         const T& operator[](int index) const;
     //Transferir desde cierto indice en adelante
-    /** \brief Método que transfiere valores de una lista, desde un indíce hasta el último, hacia otra lista
+    /** \brief Mï¿½todo que transfiere valores de una lista, desde un indï¿½ce hasta el ï¿½ltimo, hacia otra lista
      *
-     * \param v ListaDoble<T>&, la lista que se conseguirán los valores a transferir
-     * \param inicio int, la posición de donde iniciar lo que se transfiere
+     * \param v ListaDoble<T>&, la lista que se conseguirï¿½n los valores a transferir
+     * \param inicio int, la posiciï¿½n de donde iniciar lo que se transfiere
      * \return void
      *
      */void TransferirDesdeIndice( ListaDoble<T> &v, int inicio);
     //Transferir todos los elementos de una lista a otra
-    /** \brief Método que transfiere todos valores de una lista, hacia otra lista
+    /** \brief Mï¿½todo que transfiere todos valores de una lista, hacia otra lista
      *
-     * \param v ListaDoble<T>&, la lista que se conseguirán los valores a transferir
+     * \param v ListaDoble<T>&, la lista que se conseguirï¿½n los valores a transferir
      * \return void
      *
      */void TransferirElementos(ListaDoble<T> &v);
-
+    //Eliminar toda ocurrencia de un elemento
+     void EliminarOcurrencias(T valor);
+    //Eliminar por condicion
+     void EliminarSi(bool (*condicion)(T));
+    //Eliminar todo elemento repetido
+     void EliminarRepetidos();
 
 private:
     int numElem;

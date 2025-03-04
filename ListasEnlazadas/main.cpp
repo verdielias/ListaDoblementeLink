@@ -10,6 +10,9 @@ using namespace std;
  * \date 4/02/2025
 
  */
+ 
+ bool EsPar(char valor);
+ 
 int main()
 {
     try{
@@ -45,6 +48,24 @@ int main()
         cout << "Transferir elementos" << endl;
         lista2.TransferirElementos(lista);
         lista.Imprimir();
+        
+        cout << endl << endl;
+        cout << "Eliminar todos los repetidos" << endl;
+        lista2.EliminarRepetidos();
+        lista2.Imprimir();        
+        
+        cout << endl << endl;
+        cout << "Eliminar si son pares" << endl;
+        lista2.EliminarSi(EsPar);
+        lista2.Imprimir();        
+        
+        cout << endl << endl;
+        cout << "Eliminar ocurrencias" << endl;
+        lista2.EliminarOcurrencias('E');
+        lista2.Imprimir();
+        
+
+        
 
     }catch(const char * mensaje){
         cerr << mensaje << endl;
@@ -53,3 +74,8 @@ int main()
 
     return 0;
 }
+
+bool EsPar(char valor) {
+    return valor % 2 == 0;
+}
+        

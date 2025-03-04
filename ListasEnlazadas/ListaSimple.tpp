@@ -299,4 +299,91 @@ void ListaDoble<T>::TransferirElementos(ListaDoble<T> &v){
     this -> TransferirRango(v,0,numElem -1);
 }
 
+//Eliminar toda ocurrencia de un elemento
+template <typename T>
+void ListaDoble<T>::EliminarOcurrencias(T valor){
+    Elemento *aux = primero;
+    Elemento *prev = nullptr;
+    
+    while (aux != nullptr){
+        if (aux->valor == valor){
+            Elemento *porBorrar = aux;
+            if (prev == nullptr){
+                primero = aux->siguiente;
+            }else{
+                prev->siguiente = aux->siguiente;
+            }
+            aux = aux->siguiente;
+            delete porBorrar;
+            --numElem;
+        }else{
+            prev = aux;
+            aux = aux->siguiente;
+        }
+    }
+    if (primero == nullptr) {
+        ultimo = nullptr;
+    }else{
+        ultimo = prev;
+    }
+}
 
+//Eliminar todo elemento que cumpla con cierta condicion
+template <typename T>
+void ListaDoble<T>::EliminarSi(bool (*condicion)(T)){
+    Elemento *aux = primero;
+    Elemento *prev = nullptr;
+    
+    while (aux != nullptr){
+        if (condicion(aux->valor)){
+            Elemento *porBorrar = aux;
+            if (prev == nullptr){
+                primero = aux->siguiente;
+            }else{
+                prev->siguiente = aux->siguiente;
+            }
+            aux = aux->siguiente;
+            delete porBorrar;
+            --numElem;
+        }else{
+            prev = aux;
+            aux = aux->siguiente;
+        }
+    }
+    if (primero == nullptr) {
+        ultimo = nullptr;
+    }else{
+        ultimo = prev;
+    }
+}
+
+//Eliminar todo elemento repe repe repe repe repe repe repe repe repetido
+template <typename T>
+void ListaDoble<T>::EliminarRepetidos(){
+    Elemento *aux = primero;
+    while (aux != nullptr){
+        Elemento *prev = aux;
+        Elemento *dupe = aux->siguiente;
+        while (dupe != nullptr){
+            if (dupe->valor == aux->valor){
+                Elemento *porBorrar = dupe;
+                prev->siguiente = dupe->siguiente;
+                dupe = dupe->siguiente;
+                delete porBorrar;
+            }else{
+                prev = dupe;
+                dupe = dupe->siguiente;
+            }
+        }
+        aux = aux->siguiente;
+    }
+    if (primero == nullptr){
+        ultimo = nullptr;
+    }else{
+        aux = primero;
+        while (aux->siguiente != nullptr){
+            aux = aux->siguiente;
+        }
+        ultimo = aux;
+    }
+}
