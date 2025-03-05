@@ -25,7 +25,7 @@ int main()
         lista.Imprimir();
 
         cout << endl <<"Intercambiar listas" << endl;
-        lista2.AgregarAlFinal('f');
+        lista2.AgregarAlFinal('F');
 
 
         lista.IntercambiarListas(lista2);

@@ -158,10 +158,24 @@ public:
      *
      */
     void TransferirRango( ListaDoble<T> &v, int inicio, int fin);
-    //Operador sobre cargado para acceder a un elemento (lvalue)
+     /** \brief Operador sobrecargado para acceder a un elemento de la lista (lvalue)
+     *
+     * \param index, El &iacutendice del elemento a acceder
+     * \return T&, Referencia al valor del elemento en el &iacutendice especificado
+     *
+     *  \throws const char*, Si es que el &iacutendice est&aacute fuera de  rango
+     *
+     */
     T& operator[](int index);
-    //Operador sobre cargado para acceder a un elemento (rvalue)
-        const T& operator[](int index) const;
+     /** \brief Operador sobrecargado para acceder a un elemento de la lista (rvalue)
+     *
+     * \param index, El &iacutendice del elemento a acceder
+     * \return T&, Referencia constante al valor del elemento en el &iacutendice especificado
+     *
+     *  \throws const char*, Si es que el &iacutendice est&aacute fuera de  rango
+     *
+     */
+    const T& operator[](int index) const;
     //Transferir desde cierto indice en adelante
     /** \brief M�todo que transfiere valores de una lista, desde un ind�ce hasta el �ltimo, hacia otra lista
      *
@@ -169,20 +183,36 @@ public:
      * \param inicio int, la posici�n de donde iniciar lo que se transfiere
      * \return void
      *
-     */void TransferirDesdeIndice( ListaDoble<T> &v, int inicio);
+     */
+    void TransferirDesdeIndice( ListaDoble<T> &v, int inicio);
     //Transferir todos los elementos de una lista a otra
     /** \brief M�todo que transfiere todos valores de una lista, hacia otra lista
      *
      * \param v ListaDoble<T>&, la lista que se conseguir�n los valores a transferir
      * \return void
      *
-     */void TransferirElementos(ListaDoble<T> &v);
-    //Eliminar toda ocurrencia de un elemento
-     void EliminarOcurrencias(T valor);
-    //Eliminar por condicion
-     void EliminarSi(bool (*condicion)(T));
-    //Eliminar todo elemento repetido
-     void EliminarRepetidos();
+     */
+    void TransferirElementos(ListaDoble<T> &v);
+     /** \brief M&eacutetodo para eliminar todo elemento especificado de una lista
+     *
+     * \param valor, El valor de los elementos a eliminar
+     *
+     * \return void
+     *
+     */
+    void EliminarOcurrencias(T valor);
+     /** \brief M&eacutetodo para eliminar todo elemento dado una condici&oacuten
+     *
+     * \param condicion, Puntero a una funci&oacuten que toma un valor T y retorna un booleano
+     *
+     * \return void
+     *
+     */
+    void EliminarSi(bool (*condicion)(T));
+     /** \brief M&eacutetodo para eliminar todo elemento repetido en la lista
+     *
+     */
+    void EliminarRepetidos();
      //Ordenar datos
      void OrdenarLista();
 

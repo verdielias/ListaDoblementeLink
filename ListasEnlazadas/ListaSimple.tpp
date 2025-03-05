@@ -370,6 +370,7 @@ void ListaDoble<T>::EliminarRepetidos(){
                 prev->siguiente = dupe->siguiente;
                 dupe = dupe->siguiente;
                 delete porBorrar;
+                --numElem;
             }else{
                 prev = dupe;
                 dupe = dupe->siguiente;
