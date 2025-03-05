@@ -183,6 +183,8 @@ public:
      void EliminarSi(bool (*condicion)(T));
     //Eliminar todo elemento repetido
      void EliminarRepetidos();
+     //Ordenar datos
+     void OrdenarLista();
 
 private:
     int numElem;

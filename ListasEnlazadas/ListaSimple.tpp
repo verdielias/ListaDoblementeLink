@@ -304,7 +304,7 @@ template <typename T>
 void ListaDoble<T>::EliminarOcurrencias(T valor){
     Elemento *aux = primero;
     Elemento *prev = nullptr;
-    
+
     while (aux != nullptr){
         if (aux->valor == valor){
             Elemento *porBorrar = aux;
@@ -333,7 +333,7 @@ template <typename T>
 void ListaDoble<T>::EliminarSi(bool (*condicion)(T)){
     Elemento *aux = primero;
     Elemento *prev = nullptr;
-    
+
     while (aux != nullptr){
         if (condicion(aux->valor)){
             Elemento *porBorrar = aux;
@@ -386,4 +386,51 @@ void ListaDoble<T>::EliminarRepetidos(){
         }
         ultimo = aux;
     }
+}
+
+template <typename T>
+void ListaDoble<T>::OrdenarLista(){
+    Elemento * aux = primero;
+    aux = aux -> siguiente;
+    Elemento * visitar = aux -> anterior;
+    bool ordenado = true;
+    for(int i = 0; i < numElem; ++i){
+        do{
+            ordenado = true;
+            if((visitar -> valor) > (aux -> valor) ){
+
+                    if(visitar -> anterior == nullptr){
+                        AgregarAlInicio(aux -> valor);
+                        ordenado = true;
+                        Elemento * porBorrar  = aux;
+                        aux = aux -> anterior;
+                        porBorrar -> siguiente -> anterior = porBorrar -> anterior;
+                        porBorrar -> anterior -> siguiente = porBorrar -> siguiente;
+                        delete porBorrar;
+                    }else{
+                        ordenado = false;
+                        visitar = visitar -> anterior;
+                    }
+
+            }
+            if (visitar != aux -> anterior){
+                Elemento * nuevo = new Elemento (aux -> valor, visitar ->siguiente, visitar);
+                visitar -> siguiente -> anterior = nuevo;
+                visitar -> siguiente = nuevo;
+                ordenado = true;
+                Elemento * porBorrar  = aux;
+                aux = aux -> anterior;
+                porBorrar -> siguiente -> anterior = porBorrar -> anterior;
+                porBorrar -> anterior -> siguiente = porBorrar -> siguiente;
+                delete porBorrar;
+            }
+
+        }while(true);
+
+
+        visitar = aux;
+        aux = aux -> siguiente;
+
+    }
+
 }
