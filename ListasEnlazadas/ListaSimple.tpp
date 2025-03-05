@@ -390,47 +390,50 @@ void ListaDoble<T>::EliminarRepetidos(){
 
 template <typename T>
 void ListaDoble<T>::OrdenarLista(){
-    Elemento * aux = primero;
-    aux = aux -> siguiente;
-    Elemento * visitar = aux -> anterior;
-    bool ordenado = true;
-    for(int i = 0; i < numElem; ++i){
-        do{
-            ordenado = true;
-            if((visitar -> valor) > (aux -> valor) ){
 
-                    if(visitar -> anterior == nullptr){
-                        AgregarAlInicio(aux -> valor);
-                        ordenado = true;
-                        Elemento * porBorrar  = aux;
-                        aux = aux -> anterior;
-                        porBorrar -> siguiente -> anterior = porBorrar -> anterior;
-                        porBorrar -> anterior -> siguiente = porBorrar -> siguiente;
-                        delete porBorrar;
-                    }else{
-                        ordenado = false;
-                        visitar = visitar -> anterior;
-                    }
 
-            }
-            if (visitar != aux -> anterior){
-                Elemento * nuevo = new Elemento (aux -> valor, visitar ->siguiente, visitar);
-                visitar -> siguiente -> anterior = nuevo;
-                visitar -> siguiente = nuevo;
-                ordenado = true;
-                Elemento * porBorrar  = aux;
-                aux = aux -> anterior;
-                porBorrar -> siguiente -> anterior = porBorrar -> anterior;
-                porBorrar -> anterior -> siguiente = porBorrar -> siguiente;
-                delete porBorrar;
+        if (EstaVacia() || numElem == 1) return;
+
+        Elemento* aux = primero -> siguiente;
+        while (aux != nullptr) {
+            Elemento* insertar = aux;
+            Elemento* visitar = aux -> anterior;
+
+            while ( visitar && (visitar -> valor) > (insertar -> valor)) {
+                visitar = visitar -> anterior;
             }
 
-        }while(true);
+            Elemento* siguiente = aux -> siguiente;
 
+            if (insertar -> anterior) {
+                insertar -> anterior -> siguiente = insertar -> siguiente;
+            }
+            if (insertar -> siguiente) {
+                insertar -> siguiente -> anterior = insertar -> anterior;
+            }
+            if (insertar == ultimo) {
+                ultimo = insertar -> anterior;
+            }
+            if (!visitar) {
+                insertar -> siguiente = primero;
+                insertar -> anterior = nullptr;
+                primero -> anterior = insertar;
+                primero = insertar;
+            } else {
+                insertar -> siguiente = visitar -> siguiente;
+                insertar -> anterior = visitar;
+                if (visitar -> siguiente) {
+                    visitar -> siguiente -> anterior = insertar;
+                }
+                visitar -> siguiente = insertar;
+                if (visitar == ultimo) {
+                    ultimo = insertar;
+                }
+            }
 
-        visitar = aux;
-        aux = aux -> siguiente;
-
-    }
+            aux = siguiente;
+        }
 
 }
+
+
